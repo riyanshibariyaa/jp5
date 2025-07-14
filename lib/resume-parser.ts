@@ -1,4 +1,4 @@
-import { PDFExtract } from "pdf.js-extract"
+// import { PDFExtract } from "pdf.js-extract"
 import mammoth from "mammoth"
 
 interface ParsedResume {
@@ -97,7 +97,7 @@ function extractResumeData(text: string): Omit<ParsedResume, "fileUrl"> {
 
 function extractPersonalInfo(text: string) {
   const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/
-  const phoneRegex = /(\+?\d{1,3}[-.\s]?)?$$?\d{3}$$?[-.\s]?\d{3}[-.\s]?\d{4}/
+  const phoneRegex = /(\+?\d{1,3}[-.\s]?)?\d{3}[-.\s]?\d{3}[-.\s]?\d{4}/
 
   const email = text.match(emailRegex)?.[0]
   const phone = text.match(phoneRegex)?.[0]
